@@ -21,7 +21,6 @@
         .btn-line {
             // Line 1 - Rotate
             &:nth-child(1) {
-                background: red;
                 transform: rotate(45deg) translate(9px, 8px);
             }
 
@@ -32,9 +31,105 @@
             }
             // Line 3 - Rotate
             &:nth-child(3) {
-                background: royalblue;
                 transform: rotate(-45deg) translate(2px, -3px);
             }
         }
+    }
+}
+
+// Menu Overlay
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    opacity: 0.9;
+    visibility: hidden;
+
+    &.show {
+        visibility: visible;
+    }
+
+    &-branding, 
+    &-nav {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        justify-content: center;
+        float: left;
+        width: 50%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    &-nav {
+        margin: 0;
+        padding: 0;
+        background: darken($primary-color, 5);
+        list-style: none;
+        transform: translate3d(0, -100%, 0);
+        @include easeOut;
+
+        &.show {
+            // Slide in from top
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    // Branding Side
+    &-branding {
+        background: $primary-color;
+        transform: translate3d(0, 100%, 0);
+        @include easeOut;
+
+
+        &.show {
+            // Slide in from bottom
+            transform: translate3d(0, 0, 0);
+        }
+
+        .potrait {
+            width: 250px;
+            height: 250px;
+            background: url('/dist/img/portrait.jpg');
+            border-radius: 50%;
+            border: solid 3px $secondary-color;
+        }
+    }
+
+    .nav-item {
+        transform: translate3d(600px, 0, 0);
+        @include easeOut;
+
+        &.show {
+            // Slide in from right
+            transform: translate3d(0, 0, 0);
+        }
+
+        &.current > a {
+            color: $secondary-color;
+        }
+    }
+
+    .nav-link {
+        display: inline-block;
+        position: relative;
+        font-size: 2rem;
+        text-transform: uppercase;
+        padding: 1rem 0;
+        font-weight: 300;
+        color: #fff;
+        text-decoration: none;
+        @include easeOut;
+
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+// Delay each nav item slide by 0.1
+@for $i from 1 through 5 {
+    .nav-item:nth-child(#{$i}) {
+        transition-delay: $i*0.2s;
     }
 }
