@@ -15,6 +15,7 @@
         @include easeOut;
     }
 
+    // Rotate Into X With Menu Lines
     &.close {
         transform: rotate(180deg);
 
@@ -113,11 +114,11 @@
     .nav-link {
         display: inline-block;
         position: relative;
-        font-size: 2rem;
+        font-size: 30px;
         text-transform: uppercase;
         padding: 1rem 0;
         font-weight: 300;
-        color: #fff;
+        color: set-text-color($primary-color);
         text-decoration: none;
         @include easeOut;
 
@@ -128,7 +129,7 @@
 }
 
 // Delay each nav item slide by 0.1
-@for $i from 1 through 5 {
+@for $i from 1 through 4 {
     .nav-item:nth-child(#{$i}) {
         transition-delay: $i*0.2s;
     }
