@@ -97,7 +97,7 @@
     }
 
     .about-info {
-        margin: 4px;
+        margin: 10px;
         // grid-template-areas: 
         //     'bioimage' 
         //     'bio'
@@ -108,11 +108,12 @@
         .bio-image {
             
             background: url(../img/portrait_small.jpg);
-            width: 150px;
-            height: 150px;
-            margin: 1rem;
-            border-radius: 50%;
-            border: $secondary-color 3px solid;
+            width: 200px;
+            height: 200px;
+            margin: auto;
+            // border-radius: 50%;
+            // border: $secondary-color 3px solid;
+            align-items: center;
         }  
     }
     .boxes {
